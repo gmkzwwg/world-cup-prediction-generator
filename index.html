@@ -32,9 +32,23 @@
     <div id="captureArea" class="capture-area">
       <section id="bracket" class="bracket-board" aria-label="World Cup knockout bracket"></section>
 
-      <section class="links-panel">
-        <h2 data-i18n="refsTitle">赛程参考页面</h2>
-        <div id="refs" class="links-grid"></div>
+      <section class="links-panel reference-layout-panel">
+        <div class="reference-layout">
+          <div class="reference-main">
+            <h2 data-i18n="refsTitle">赛程参考页面</h2>
+            <div id="refs" class="links-grid"></div>
+          </div>
+
+          <aside class="share-panel share-panel--home" aria-label="页面分享">
+            <strong>扫码访问</strong>
+            <img src="assets/site-qr.png" alt="QR code for https://gmkzwwg.github.io/world-cup-prediction-generator/">
+            <div class="share-url-row">
+              <input class="share-url" type="text" value="https://gmkzwwg.github.io/world-cup-prediction-generator/" readonly aria-label="Website address">
+              <button class="share-copy" type="button" data-copy-url="https://gmkzwwg.github.io/world-cup-prediction-generator/">复制地址</button>
+            </div>
+            <span class="share-hint">手机扫码或复制地址打开本站。</span>
+          </aside>
+        </div>
       </section>
     </div>
   </main>
@@ -45,5 +59,24 @@
 
   <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js" defer></script>
   <script src="assets/bracket.js" defer></script>
+  <script>
+    document.querySelectorAll("[data-copy-url]").forEach(function (button) {
+      button.addEventListener("click", async function () {
+        const url = button.getAttribute("data-copy-url");
+        try {
+          await navigator.clipboard.writeText(url);
+          button.textContent = "已复制";
+          setTimeout(function () { button.textContent = "复制地址"; }, 1400);
+        } catch (error) {
+          const input = button.parentElement.querySelector(".share-url");
+          if (input) {
+            input.focus();
+            input.select();
+          }
+        }
+      });
+    });
+  </script>
+
 </body>
 </html>

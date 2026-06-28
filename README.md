@@ -18,3 +18,20 @@ Pure static GitHub Pages site.
 5. Save.
 
 No Jekyll, Ruby, Actions, or build step is required.
+
+
+## v6 update
+
+Reference pages include a right-side QR/share panel for:
+
+https://gmkzwwg.github.io/world-cup-prediction-generator/
+
+
+## v7 update
+
+- Removed the QR/share panel from individual reference pages.
+- Added a two-column schedule-reference area on the prediction homepage.
+- Left column: schedule reference page cards.
+- Right column: smaller sticky share panel with QR code and address.
+
+Site URL: https://gmkzwwg.github.io/world-cup-prediction-generator/
