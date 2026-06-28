@@ -813,3 +813,26 @@ footer {
     margin: 14px 0 0;
   }
 }
+
+
+/* v9: GitHub repository button inside homepage share panel */
+.github-repo-button {
+  display: block;
+  width: 100%;
+  margin-top: 9px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: rgba(255,255,255,.075);
+  color: var(--text);
+  padding: 8px 10px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 12px;
+  transition: transform .12s ease, border-color .12s ease, background .12s ease;
+}
+
+.github-repo-button:hover {
+  transform: translateY(-1px);
+  border-color: rgba(15,202,28,.82);
+  background: rgba(15,202,28,.12);
+}
