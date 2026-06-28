@@ -35,3 +35,9 @@ https://gmkzwwg.github.io/world-cup-prediction-generator/
 - Right column: smaller sticky share panel with QR code and address.
 
 Site URL: https://gmkzwwg.github.io/world-cup-prediction-generator/
+
+
+## v8 update
+
+- Fixed overlapping center labels by showing `Final` and `Third place` as a two-line center title.
+- Fixed narrow-screen title overlap by forcing round titles back into natural grid flow.

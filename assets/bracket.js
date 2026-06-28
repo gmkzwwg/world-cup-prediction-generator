@@ -261,13 +261,22 @@ function renderBracket() {
   root.appendChild(svg);
   const titleSlots = new Set();
   for (const column of LAYOUT) {
-    const titleKey = `${column.col}-${column.title}`;
-    if (!titleSlots.has(titleKey)) {
+    const titleKey = column.side === "center" ? "center-finals" : `${column.col}-${column.title}`;
+
+    if (column.side === "center" && column.title === "third") {
+      // The center column uses one stacked label: Final / Third place.
+    } else if (!titleSlots.has(titleKey)) {
       const title = document.createElement("h2");
-      title.className = "round-title";
+      title.className = column.side === "center" ? "round-title center-round-title" : "round-title";
       title.style.gridColumn = String(column.col);
       title.style.gridRow = "1";
-      title.textContent = column.round === "r32" ? `${t(column.title)} · ${t("r32")}` : t(column.title);
+
+      if (column.side === "center") {
+        title.innerHTML = `<span>${escapeHTML(t("final"))}</span><span>${escapeHTML(t("third"))}</span>`;
+      } else {
+        title.textContent = column.round === "r32" ? `${t(column.title)} · ${t("r32")}` : t(column.title);
+      }
+
       root.appendChild(title);
       titleSlots.add(titleKey);
     }
