@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>2026 World Cup Prediction Bracket</title>
+  <meta name="description" content="A static bilingual 2026 World Cup knockout prediction bracket for GitHub Pages.">
+  <link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+  <header>
+    <div class="topbar">
+      <div class="brand">
+        <a href="index.html"><h1 data-i18n="title">2026 世界杯晋级预测器</h1></a>
+        <p class="subtitle" data-i18n="subtitle">左右分区显示淘汰赛路径；点击获胜方，自动推进到下一轮。</p>
+      </div>
+      <div class="nav">
+        <a href="references/index.html">参考页</a>
+        <button id="langBtn" type="button">English</button>
+        <button id="imageBtn" type="button" data-i18n="saveImage">保存为图片</button>
+        <button id="exportBtn" type="button" data-i18n="export">导出预测</button>
+        <label class="file-label" for="importFile" data-i18n="import">导入预测</label>
+        <input id="importFile" type="file" accept="application/json">
+        <button id="clearBtn" class="danger" type="button" data-i18n="clear">清空预测</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <p class="note" data-i18n="note">这是静态预测表，不抓取实时比分。预测会自动保存在当前浏览器，也可以导出为 JSON 文件。</p>
+
+    <div id="captureArea" class="capture-area">
+      <section id="bracket" class="bracket-board" aria-label="World Cup knockout bracket"></section>
+
+      <section class="links-panel">
+        <h2 data-i18n="refsTitle">赛程参考页面</h2>
+        <div id="refs" class="links-grid"></div>
+      </section>
+    </div>
+  </main>
+
+  <div id="toast" class="toast"></div>
+
+  <footer data-i18n="footer">单文件静态页面，可直接作为 GitHub Pages 的 index.html 发布。</footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js" defer></script>
+  <script src="assets/bracket.js" defer></script>
+</body>
+</html>
